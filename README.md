@@ -1,6 +1,6 @@
 # Sendgrid NodeJS Custom
 
-This library allows you to quickly and easily use the Sendgrid API via NodeJS.
+This library allows you to quickly and easily use the Sendgrid API via Node.js.
 
 ## Getting Started
 
