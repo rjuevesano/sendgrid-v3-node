@@ -18,20 +18,106 @@ npm install --save sendgrid-nodejs-custom
 
 ## Quick Start
 
+Sending a Single Email to a Single Recipient
+
 ```
 const sendgrid = require('sendgrid-nodejs-custom');
 
 const mailOptions = {
-    sendgrid_key: 'SENDGRID_KEY',
-    from_email: 'FROM_EMAIL',
-    from_name: 'FROM_NAME',
+    sendgrid_key: SENDGRID_KEY,
+    from_email: FROM_EMAIL,
+    from_name: FROM_NAME,
     to: TO_EMAIL
 };
 
-mailOptions.subject = 'SUBJECT';
-mailOptions.content = 'CONTENT';
+mailOptions.subject = SUBJECT;
+mailOptions.content = CONTENT;
 sendgrid.send_via_sendgrid(mailOptions).then(response => {
     console.log(response);
     console.log('New welcome email sent to:', email);
 });
 ```
+
+Sending a Single Email to a Single Recipient With a CC
+
+```
+const sendgrid = require('sendgrid-nodejs-custom');
+
+const mailOptions = {
+    sendgrid_key: SENDGRID_KEY,
+    from_email: FROM_EMAIL,
+    from_name: FROM_NAME,
+    to: TO_EMAIL
+    cc: TO_CC
+};
+
+mailOptions.subject = SUBJECT;
+mailOptions.content = CONTENT;
+sendgrid.send_via_sendgrid(mailOptions).then(response => {
+    console.log(response);
+    console.log('New welcome email sent to:', email);
+});
+```
+
+Sending a Single Email to a Single Recipient With a CC and a BCC
+
+```
+const sendgrid = require('sendgrid-nodejs-custom');
+
+const mailOptions = {
+    sendgrid_key: SENDGRID_KEY,
+    from_email: FROM_EMAIL,
+    from_name: FROM_NAME,
+    to: TO_EMAIL,
+    cc: TO_CC,
+    bcc: TO_BCC
+};
+
+mailOptions.subject = SUBJECT;
+mailOptions.content = CONTENT;
+sendgrid.send_via_sendgrid(mailOptions).then(response => {
+    console.log(response);
+    console.log('New welcome email sent to:', email);
+});
+```
+
+Sending the same Email to Multiple Recipients
+
+```
+const sendgrid = require('sendgrid-nodejs-custom');
+
+const mailOptions = {
+    sendgrid_key: SENDGRID_KEY,
+    from_email: FROM_EMAIL,
+    from_name: FROM_NAME,
+    to: [TO_EMAIL1, TO_EMAIL2, ...]
+};
+
+mailOptions.subject = SUBJECT;
+mailOptions.content = CONTENT;
+sendgrid.send_via_sendgrid(mailOptions).then(response => {
+    console.log(response);
+    console.log('New welcome email sent to:', email);
+});
+```
+
+Sending a Single Email to a Single Recipient With Multiple CCs/BCCs
+
+```
+const sendgrid = require('sendgrid-nodejs-custom');
+
+const mailOptions = {
+    sendgrid_key: SENDGRID_KEY,
+    from_email: FROM_EMAIL,
+    from_name: FROM_NAME,
+    to: TO_EMAIL,
+    cc: [TO_CC1, TO_CC2, ...],
+    bcc: [TO_BCC1, TO_BCC2, ...]
+};
+
+mailOptions.subject = SUBJECT;
+mailOptions.content = CONTENT;
+sendgrid.send_via_sendgrid(mailOptions).then(response => {
+    console.log(response);
+    console.log('New welcome email sent to:', email);
+});
