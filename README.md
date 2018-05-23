@@ -9,7 +9,7 @@ This library allows you to quickly and easily use the Sendgrid API via Node.js.
 The following recommended installation requires [npm](https://npmjs.org/). If you are unfamiliar with npm, see the [npm docs](https://docs.npmjs.com/).
 
 ```
-npm install --save sendgrid-nodejs-custom
+npm install --save sendgrid-v3-node
 ```
 
 ### Dependencies
@@ -21,7 +21,7 @@ npm install --save sendgrid-nodejs-custom
 Sending a Single Email to a Single Recipient
 
 ```
-const sendgrid = require('sendgrid-nodejs-custom');
+const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
     sendgrid_key: SENDGRID_KEY,
@@ -41,7 +41,7 @@ sendgrid.send_via_sendgrid(mailOptions).then(response => {
 Sending a Single Email to a Single Recipient With a CC
 
 ```
-const sendgrid = require('sendgrid-nodejs-custom');
+const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
     sendgrid_key: SENDGRID_KEY,
@@ -62,7 +62,7 @@ sendgrid.send_via_sendgrid(mailOptions).then(response => {
 Sending a Single Email to a Single Recipient With a CC and a BCC
 
 ```
-const sendgrid = require('sendgrid-nodejs-custom');
+const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
     sendgrid_key: SENDGRID_KEY,
@@ -84,7 +84,7 @@ sendgrid.send_via_sendgrid(mailOptions).then(response => {
 Sending the same Email to Multiple Recipients
 
 ```
-const sendgrid = require('sendgrid-nodejs-custom');
+const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
     sendgrid_key: SENDGRID_KEY,
@@ -104,7 +104,7 @@ sendgrid.send_via_sendgrid(mailOptions).then(response => {
 Sending a Single Email to a Single Recipient With Multiple CCs/BCCs
 
 ```
-const sendgrid = require('sendgrid-nodejs-custom');
+const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
     sendgrid_key: SENDGRID_KEY,

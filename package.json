@@ -1,6 +1,6 @@
 {
   "name": "sendgrid-v3-node",
-  "version": "1.0.10",
+  "version": "1.0.1",
   "description": "This library allows you to quickly and easily use the Sendgrid API via Node.js.",
   "main": "index.js",
   "scripts": {
