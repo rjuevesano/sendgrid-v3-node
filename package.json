@@ -18,5 +18,6 @@
     "sendgrid node.js",
     "sendgrid nodejs",
     "sendgrid node"
-  ]
+  ],
+  "devDependencies": {}
 }
