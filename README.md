@@ -24,17 +24,16 @@ Sending a Single Email to a Single Recipient
 const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
-    sendgrid_key: SENDGRID_KEY,
-    from_email: FROM_EMAIL,
-    from_name: FROM_NAME,
-    to: TO_EMAIL
+    sendgrid_key: 'SENDGRID_KEY',
+    from_email: 'FROM_EMAIL',
+    from_name: 'FROM_NAME',
+    to: 'TO_EMAIL' // REQUIRED: `string` email
 };
 
-mailOptions.subject = SUBJECT;
-mailOptions.content = CONTENT;
+mailOptions.subject = 'SUBJECT';
+mailOptions.content = 'CONTENT';
 sendgrid.send_via_sendgrid(mailOptions).then(response => {
     console.log(response);
-    console.log('New welcome email sent to:', email);
 });
 ```
 
@@ -44,18 +43,17 @@ Sending a Single Email to a Single Recipient With a CC
 const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
-    sendgrid_key: SENDGRID_KEY,
-    from_email: FROM_EMAIL,
-    from_name: FROM_NAME,
-    to: TO_EMAIL
-    cc: TO_CC
+    sendgrid_key: 'SENDGRID_KEY',
+    from_email: 'FROM_EMAIL',
+    from_name: 'FROM_NAME',
+    to: 'TO_EMAIL', // REQUIRED: `string` email
+    cc: 'TO_CC' // OPTIONAL: `string` email
 };
 
-mailOptions.subject = SUBJECT;
-mailOptions.content = CONTENT;
+mailOptions.subject = 'SUBJECT';
+mailOptions.content = 'CONTENT';
 sendgrid.send_via_sendgrid(mailOptions).then(response => {
     console.log(response);
-    console.log('New welcome email sent to:', email);
 });
 ```
 
@@ -65,19 +63,18 @@ Sending a Single Email to a Single Recipient With a CC and a BCC
 const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
-    sendgrid_key: SENDGRID_KEY,
-    from_email: FROM_EMAIL,
-    from_name: FROM_NAME,
-    to: TO_EMAIL,
-    cc: TO_CC,
-    bcc: TO_BCC
+    sendgrid_key: 'SENDGRID_KEY',
+    from_email: 'FROM_EMAIL',
+    from_name: 'FROM_NAME',
+    to: 'TO_EMAIL', // REQUIRED: `string` email
+    cc: 'TO_CC', // OPTIONAL: `string` email
+    bcc: 'TO_BCC' // OPTIONAL: `string` email
 };
 
-mailOptions.subject = SUBJECT;
-mailOptions.content = CONTENT;
+mailOptions.subject = 'SUBJECT';
+mailOptions.content = 'CONTENT';
 sendgrid.send_via_sendgrid(mailOptions).then(response => {
     console.log(response);
-    console.log('New welcome email sent to:', email);
 });
 ```
 
@@ -87,17 +84,16 @@ Sending the same Email to Multiple Recipients
 const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
-    sendgrid_key: SENDGRID_KEY,
-    from_email: FROM_EMAIL,
-    from_name: FROM_NAME,
-    to: [TO_EMAIL1, TO_EMAIL2, ...]
+    sendgrid_key: 'SENDGRID_KEY',
+    from_email: 'FROM_EMAIL',
+    from_name: 'FROM_NAME',
+    to: ['TO_EMAIL1', 'TO_EMAIL2', ...] // REQUIRED: array of `string` email
 };
 
-mailOptions.subject = SUBJECT;
-mailOptions.content = CONTENT;
+mailOptions.subject = 'SUBJECT';
+mailOptions.content = 'CONTENT';
 sendgrid.send_via_sendgrid(mailOptions).then(response => {
     console.log(response);
-    console.log('New welcome email sent to:', email);
 });
 ```
 
@@ -107,17 +103,47 @@ Sending a Single Email to a Single Recipient With Multiple CCs/BCCs
 const sendgrid = require('sendgrid-v3-node');
 
 const mailOptions = {
-    sendgrid_key: SENDGRID_KEY,
-    from_email: FROM_EMAIL,
-    from_name: FROM_NAME,
-    to: TO_EMAIL,
-    cc: [TO_CC1, TO_CC2, ...],
-    bcc: [TO_BCC1, TO_BCC2, ...]
+    sendgrid_key: 'SENDGRID_KEY',
+    from_email: 'FROM_EMAIL',
+    from_name: 'FROM_NAME',
+    to: ['TO_EMAIL1', 'TO_EMAIL2', ...], // REQUIRED: array of `string` email
+    cc: ['TO_CC1', 'TO_CC2', ...], // OPTIONAL: array of `string` email
+    bcc: ['TO_BCC1', 'TO_BCC2', ...] // OPTIONAL: array of `string` email
 };
 
-mailOptions.subject = SUBJECT;
-mailOptions.content = CONTENT;
+mailOptions.subject = 'SUBJECT';
+mailOptions.content = 'CONTENT';
 sendgrid.send_via_sendgrid(mailOptions).then(response => {
     console.log(response);
-    console.log('New welcome email sent to:', email);
 });
+```
+
+Sending Two Different Emails to Two Different Groups of Recipients
+
+```
+const sendgrid = require('sendgrid-v3-node');
+
+const mailOptions = {
+    sendgrid_key: 'SENDGRID_KEY',
+    from_email: 'FROM_EMAIL',
+    from_name: 'FROM_NAME',
+    groups: [
+        {
+            to: ['TO_EMAIL1', 'TO_EMAIL2', ...] or 'TO_EMAIL', // REQUIRED: array of `string` email or a `string` email
+            cc: ['CC_EMAIL1', 'CC_EMAIL2', ...] or 'CC_EMAIL', // OPTIONAL: array of `string` email or a `string` email
+            bcc: ['BCC_EMAIL1', 'BCC_EMAIL2', ...] or 'BCC_EMAIL', // OPTIONAL: array of `string` email or a `string` email
+        },
+        {
+            to: ['TO_EMAIL1', 'TO_EMAIL2', ...] or 'TO_EMAIL', // REQUIRED: array of `string` email or a `string` email
+            cc: ['CC_EMAIL1', 'CC_EMAIL2', ...] or 'CC_EMAIL', // OPTIONAL: array of `string` email or a `string` email
+            bcc: ['BCC_EMAIL1', 'BCC_EMAIL2', ...] or 'BCC_EMAIL', // OPTIONAL: array of `string` email or a `string` email
+        },
+    ]
+};
+
+mailOptions.subject = 'SUBJECT';
+mailOptions.content = 'CONTENT';
+sendgrid.send_via_sendgrid(mailOptions).then(response => {
+    console.log(response);
+});
+```
